@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="6dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@drawable/border">
+
+        <Button
+            android:id="@+id/imageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/button_background"
+            android:backgroundTint="@android:color/darker_gray"
+            android:text="LA"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="@string/leaveHeading"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/requestDateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="Requested on: 25 Feb 2020"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#3041A1"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/applicantNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="Requested By: Saurabh Shah"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#3041A1"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
