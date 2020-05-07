@@ -14,12 +14,13 @@ public class ApplicantLeaveData {
         applicantData1.put("fromDate","25 May 2020");
         applicantData1.put("toDate","30 May 2020");
         applicantData1.put("noOfDays","6");
-        applicantData1.put("Surabh Shah","applicantData1");
+        applicantData1.put("Saurabh Shah","applicantData1");
         applicantData1.put("applicationTitle","Leave Application");
         applicantData1.put("reason","Need to visit native place urgently");
 
         applicantData2.put("applicationTitle","Leave Application");
         applicantData2.put("applicantName","Sanjay");
+        applicantData1.put("Sanjay","applicantData2");
         applicantData2.put("fromDate","22 May 2020");
         applicantData2.put("toDate","24 May 2020");
         applicantData2.put("noOfDays","3");
@@ -27,7 +28,6 @@ public class ApplicantLeaveData {
 
     }
     public Dictionary<String, String> getApplicationDetails(String name){
-        String dName;
         if (applicantData1.get(name) == "applicantData1"){
             return applicantData1;
         }

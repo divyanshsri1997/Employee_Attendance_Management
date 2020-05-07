@@ -16,24 +16,30 @@ public class ApproveLeaveActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_approve_leave);
-        //Intent intent = getIntent();
-        //applicantDetails = intent.getParcelableExtra("applicantData");
+        Intent intent = getIntent();
+        String applicantName = intent.getStringExtra("message");
+        applicantDetails = new ApplicantLeaveData().getApplicationDetails(applicantName);
         nameTextView = findViewById(R.id.applicantName);
         fromDateTextView = findViewById(R.id.fromDate);
         toDateTextView = findViewById(R.id.toDate);
         noOfDaysTextView = findViewById(R.id.noOfDays);
         reasonTextView = findViewById(R.id.reason);
 
-//        String name = applicantDetails.get("applicantName");
-//        nameTextView.setText(name);
-//        String fromDate = applicantDetails.get("fromDate");
-//        fromDateTextView.setText(fromDate);
-//        String toDate = applicantDetails.get("ToDate");
-//        toDateTextView.setText(toDate);
-//        String noOfDays = applicantDetails.get("noOfDays");
-//        noOfDaysTextView.setText(noOfDays);
-//        String reason = applicantDetails.get("reason");
-//        reasonTextView.setText(reason);
+        displayApplicationDetails();
 
     }
+
+    void displayApplicationDetails(){
+        String name = applicantDetails.get("applicantName");
+        nameTextView.setText(name);
+        String fromDate = applicantDetails.get("fromDate");
+        fromDateTextView.setText(fromDate);
+        String toDate = applicantDetails.get("toDate");
+        toDateTextView.setText(toDate);
+        String noOfDays = applicantDetails.get("noOfDays");
+        noOfDaysTextView.setText(noOfDays);
+        String reason = applicantDetails.get("reason");
+        reasonTextView.setText(reason);
+    }
+
 }

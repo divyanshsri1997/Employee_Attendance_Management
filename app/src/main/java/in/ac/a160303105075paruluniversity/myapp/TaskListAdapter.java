@@ -58,7 +58,6 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
     class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        //public static final String applicantData = "in.ac.a160303105075paruluniversity.myapp.extra.MESSAGE";
         public final TextView taskItemTextView;
         public final Button buttonText;
         public final TextView fromDateTextView;
@@ -73,13 +72,15 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
             buttonText =(Button) itemView.findViewById(R.id.imageButton);
             this.mAdapter = adapter;
             itemView.setOnClickListener(this);
+
         }
 
         @Override
         public void onClick(View v) {
             int mPosition = getLayoutPosition();
+            String name = taskList.get(mPosition);
             Intent intent = new Intent(mContext,ApproveLeaveActivity.class);
-            //intent.putExtra(applicantData, (Parcelable) applicationDetails);
+            intent.putExtra("message", name);
             mContext.startActivity(intent);
         }
     }

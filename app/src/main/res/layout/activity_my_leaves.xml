@@ -5,16 +5,16 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_my_leaves"
-    android:paddingTop="10dp"
+    android:padding="20dp"
     android:background="@drawable/app_bg"
     tools:context="in.ac.a160303105075paruluniversity.myapp.MyLeavesActivity">
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginStart="30dp"
-        android:background="?attr/colorPrimary"
+        android:padding="5dp"
+        android:background="@drawable/round_button"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 

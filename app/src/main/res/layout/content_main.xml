@@ -111,19 +111,19 @@
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
             <TextView
+                android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="8dp"
                 android:text="CL"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="18sp"
-                android:id="@+id/textView7"
-                android:layout_marginTop="0dp"
-                app:layout_constraintTop_toTopOf="@+id/textView11"
                 app:layout_constraintLeft_toRightOf="@+id/textView11"
-                android:layout_marginLeft="8dp"
                 app:layout_constraintRight_toLeftOf="@+id/toDate"
-                android:layout_marginRight="8dp" />
+                app:layout_constraintTop_toTopOf="@+id/textView11" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -135,38 +135,44 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintBottom_toBottomOf="@+id/textView7"
                 android:layout_marginBottom="-13dp" />
+
             <TextView
+                android:id="@+id/plTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5/10"
+                android:layout_marginLeft="60dp"
+                android:layout_marginBottom="8dp"
                 android:onClick="launchMyLeavesActivity"
+                android:text="0/0"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/textView11"
-                android:layout_marginStart="52dp"
                 app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11"
                 app:layout_constraintVertical_bias="0.444" />
+
             <TextView
+                android:id="@+id/clTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5/10"
+                android:layout_marginBottom="8dp"
+                android:text="0/0"
                 android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
             <TextView
+                android:id="@+id/slTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5/10"
+                android:layout_marginRight="64dp"
+                android:layout_marginBottom="8dp"
+                android:text="0/0"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/toDate"
-                android:layout_marginEnd="58dp"
-                app:layout_constraintRight_toRightOf="parent" />
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toDate" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
@@ -339,31 +345,34 @@
                 android:textSize="15sp"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/calendarView3" />
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="0dp"
-                android:text="5/10"
-                android:onClick="launchAttendanceLogActivity"
-                android:textSize="25sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="8dp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="56dp"
-                android:layout_marginTop="0dp"
-                android:text="5/10"
-                android:onClick="launchAttendanceLogActivity"
-                android:textSize="25sp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/presentTextView"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginBottom="8dp"
-                android:id="@+id/textView6" />
+                android:onClick="launchAttendanceLogActivity"
+                android:text="00/00"
+                android:gravity="center"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/absentTextView"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:onClick="launchAttendanceLogActivity"
+                android:text="00/00"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
@@ -424,29 +433,29 @@
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintStart_toEndOf="@+id/dayTextView"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/dayTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="5dp"
-                android:text="5"
+                android:text="6"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="35sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <TextView
-                android:id="@+id/dayTextView"
+                android:id="@+id/weekDayTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
                 android:text="Tuesday"
                 android:textColor="@android:color/holo_blue_dark"
-                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintStart_toEndOf="@+id/dayTextView"
                 app:layout_constraintTop_toBottomOf="@+id/holidayTextView" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>

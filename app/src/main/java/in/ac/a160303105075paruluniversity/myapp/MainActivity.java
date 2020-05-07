@@ -22,7 +22,8 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     CalendarView cv;
-    TextView dateTextView, holidayTextView, dayTextView, taskTextView;
+    TextView dateTextView, holidayTextView,weekDayTextView, dayTextView, taskTextView,greetTextView;
+    TextView nameTextView, presentTextView, absentTextView, plTextView, clTextView, slTextView;
 
 
     @Override
@@ -50,14 +51,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         this.dateTextView = findViewById(R.id.dateTextView);
         long milliSeconds = cv.getDate();
         Date date = new Date(milliSeconds);
-        SimpleDateFormat df = new SimpleDateFormat("dd-MM-YYYY");
-        String currentDate = df.format(date);
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-YYYY HH");
+        String dateWithTime = df.format(date);
+        String currentDate = dateWithTime.substring(0,10);
+        int time = Integer.parseInt(dateWithTime.substring(11));
+        this.greetTextView = findViewById(R.id.greetTextView);
+        if(time >=5 && time < 12){
+            greetTextView.setText("Good Morning");
+        }
+        else if(time < 16){
+            greetTextView.setText("Good Afternoon");
+        }
+        else{
+            greetTextView.setText("Good Evening");
+        }
         dateTextView.setText(currentDate);
 
         this.holidayTextView = findViewById(R.id.holidayTextView);
+        this.weekDayTextView = findViewById(R.id.weekDayTextView);
         this.dayTextView = findViewById(R.id.dayTextView);
-        String currentYear = "2019";
-        new FetchHoliday(dayTextView, holidayTextView).execute(currentYear);
+        new FetchHoliday(dayTextView,weekDayTextView, holidayTextView, currentDate).execute();
+
+        this.nameTextView = findViewById(R.id.nameTextView);
+        this.presentTextView = findViewById(R.id.presentTextView);
+        this.absentTextView = findViewById(R.id.absentTextView);
+        this.plTextView = findViewById(R.id.plTextView);
+        this.clTextView = findViewById(R.id.clTextView);
+        this.slTextView = findViewById(R.id.slTextView);
+        new FetchEmployeeData(nameTextView,presentTextView,absentTextView,plTextView,slTextView,clTextView).execute();
 
 
     }
