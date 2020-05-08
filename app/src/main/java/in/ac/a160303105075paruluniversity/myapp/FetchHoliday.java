@@ -51,22 +51,21 @@ public class FetchHoliday extends AsyncTask<Void,Void,String> {
                     month = datetime.getString("month");
                     year = datetime.getString("year");
                     holidayManager = new HolidayManager(holidayName,type,day,month,year,currentDate);
+                    holidayTextView.get().setText(holidayManager.displayHoliday());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 i++;
             }
+            updateUI();
         }catch(Exception e){
                 // If onPostExecute does not receive a proper JSON string,
                 // update the UI to show failed results.
                 holidayTextView.get().setText("No response");
-                weekDayTextView.get().setText("Null");
         }
-        updateUI();
     }
     public void updateUI(){
         dayTextView.get().setText(holidayManager.displayCurrentDay());
         weekDayTextView.get().setText(holidayManager.displayWeekDay());
-        holidayTextView.get().setText("Work Day");
     }
 }

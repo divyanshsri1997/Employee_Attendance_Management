@@ -13,4 +13,18 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="morningMsg">Good Morning</string>
+    <string name="afternoonMessage">Good Afternoon</string>
+    <string name="eveningMessage">Good Evening</string>
+    <string name="total">TOTAL</string>
+    <string name="present">PRESENT</string>
+    <string name="absent">ABSENT</string>
+    <string name="holidays">HOLIDAYS</string>
+    <string name="totalDays">22</string>
+    <string name="totalPresentDays">17</string>
+    <string name="absentDays">3</string>
+    <string name="_2">2</string>
+    <string name="p">P</string>
+    <string name="presentDate">5-05-2020</string>
+    <string name="presentDuration">9:00 AM - 6:00 PM</string>
 </resources>

@@ -17,7 +17,8 @@ public class FetchEmployeeData extends AsyncTask<Void,Void,String> {
     private WeakReference<TextView> clTextView;
     private WeakReference<TextView> slTextView;
 
-    FetchEmployeeData(TextView nameTextView,TextView presentTextView,TextView absentTextView,TextView plTextView, TextView clTextView,TextView slTextView){
+    FetchEmployeeData(TextView nameTextView,TextView presentTextView,TextView absentTextView
+            ,TextView plTextView, TextView clTextView,TextView slTextView){
         this.nameTextView = new WeakReference<>(nameTextView);
         this.presentTextView = new WeakReference<>(presentTextView);
         this.absentTextView = new WeakReference<>(absentTextView);
@@ -47,7 +48,6 @@ public class FetchEmployeeData extends AsyncTask<Void,Void,String> {
             while (i < itemsArray.length() && (employeeName == null)) {
                 // Get the current item information.
                 JSONObject employees = itemsArray.getJSONObject(i);
-                // Try to get the author and title from the current item,
                 // catch if either field is empty and move on.
                 try {
                     employeeName = employees.getString("firstName");
@@ -65,8 +65,6 @@ public class FetchEmployeeData extends AsyncTask<Void,Void,String> {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                // Move to the next item.
                 i++;
             }
         }catch(Exception e){

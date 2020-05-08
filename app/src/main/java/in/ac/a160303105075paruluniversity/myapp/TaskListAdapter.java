@@ -22,8 +22,6 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
     private final LinkedList<String> taskList;
     private final ApplicantLeaveData applicantData;
     private LayoutInflater mInflater;
-    Dictionary<String,String> applicationDetails;
-    private TaskActivity ta;
     private Context mContext;
 
     public TaskListAdapter(Context context, LinkedList<String> taskList, ApplicantLeaveData applicantData) {
@@ -41,6 +39,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
     @Override
     public void onBindViewHolder(TaskListAdapter.TaskViewHolder holder, int position) {
+        Dictionary<String,String> applicationDetails;
         String name = taskList.get(position);
         String applicantName = "Requested By: "+ name;
         applicationDetails = applicantData.getApplicationDetails(name);
@@ -58,18 +57,18 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
     class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        public final TextView taskItemTextView;
-        public final Button buttonText;
-        public final TextView fromDateTextView;
-        public final TextView applicantNameTextView;
+        final TextView taskItemTextView;
+        final Button buttonText;
+        final TextView fromDateTextView;
+        final TextView applicantNameTextView;
         final TaskListAdapter mAdapter;
 
         public TaskViewHolder(View itemView, TaskListAdapter adapter)  {
             super(itemView);
-            taskItemTextView = (TextView) itemView.findViewById(R.id.task);
+            taskItemTextView = itemView.findViewById(R.id.task);
             fromDateTextView = itemView.findViewById(R.id.requestDateTextView);
             applicantNameTextView = itemView.findViewById(R.id.applicantNameTextView);
-            buttonText =(Button) itemView.findViewById(R.id.imageButton);
+            buttonText = itemView.findViewById(R.id.imageButton);
             this.mAdapter = adapter;
             itemView.setOnClickListener(this);
 

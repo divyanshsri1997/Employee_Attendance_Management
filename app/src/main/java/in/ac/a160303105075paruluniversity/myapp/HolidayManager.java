@@ -11,21 +11,30 @@ public class HolidayManager {
         this.month = month;
         this.year = year;
         this.currentDate = currentDate;
-    }
-    public String displayCurrentDay(){
         currentDay = Integer.parseInt(currentDate.substring(0,2));
         currentMonth = Integer.parseInt(currentDate.substring(3,5));
-        System.out.println("current month:"+currentMonth);
         currentYear = Integer.parseInt(currentDate.substring(6,10));
-        System.out.println("current year:"+currentYear);
+    }
+    public String displayCurrentDay(){
         return String.valueOf(currentDay);
     }
     public  String displayWeekDay(){
         int t[] = {0,3,2,5,0,3,5,1,4,6,2,4};
         currentYear -= (currentMonth<3)?1:0;
-        int n = (currentYear + currentYear/4 - currentYear/100 + currentYear/400 + t[currentMonth - 1] + currentDay) % 7;
-        System.out.println("value of n:"+n);
+        int n = (currentYear + currentYear/4 - currentYear/100 + currentYear/400
+                + t[currentMonth - 1] + currentDay) % 7;
         return days[n];
+    }
+    public String displayHoliday(){
+        int d = Integer.parseInt(day);
+        int m = Integer.parseInt(month);
+        if(d == currentDay && m == currentMonth && type.equals("[\"National holiday\"]")){
+            return type.substring(3,19);
+        }
+        else{
+            //System.out.println("In else block");
+            return "Work Day";
+        }
     }
 
 }
