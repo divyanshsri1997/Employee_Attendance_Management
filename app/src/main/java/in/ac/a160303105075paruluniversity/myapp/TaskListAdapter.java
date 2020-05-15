@@ -24,7 +24,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
     private LayoutInflater mInflater;
     private Context mContext;
 
-    public TaskListAdapter(Context context, LinkedList<String> taskList, ApplicantLeaveData applicantData) {
+    TaskListAdapter(Context context, LinkedList<String> taskList, ApplicantLeaveData applicantData) {
         mInflater = LayoutInflater.from(context);
         this.mContext = context;
         this.taskList = taskList;
@@ -48,7 +48,19 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         holder.taskItemTextView.setText(applicationTitle);
         holder.fromDateTextView.setText(requestDate);
         holder.applicantNameTextView.setText(applicantName);
+        holder.buttonText.setText(setButtonText(applicationTitle));
     }
+    private static String setButtonText(String applicationTitle){
+        char[] title = applicationTitle.toCharArray();
+        StringBuilder buttonText = new StringBuilder(String.valueOf(Character.toUpperCase(title[0])));
+        for(int i = 1;i<title.length; i++){
+            if(title[i] == ' '){
+                buttonText.append(Character.toUpperCase(title[i + 1]));
+            }
+        }
+        return buttonText.toString();
+    }
+
 
     @Override
     public int getItemCount() {
@@ -63,7 +75,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         final TextView applicantNameTextView;
         final TaskListAdapter mAdapter;
 
-        public TaskViewHolder(View itemView, TaskListAdapter adapter)  {
+        TaskViewHolder(View itemView, TaskListAdapter adapter)  {
             super(itemView);
             taskItemTextView = itemView.findViewById(R.id.task);
             fromDateTextView = itemView.findViewById(R.id.requestDateTextView);
