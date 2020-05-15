@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".AttendanceLogActivity"
             android:label="My Attendance Log"
             android:parentActivityName=".MainActivity">
@@ -21,7 +24,7 @@
                 android:value="in.ac.a160303105075paruluniversity.myapp.MainActivity" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreenActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

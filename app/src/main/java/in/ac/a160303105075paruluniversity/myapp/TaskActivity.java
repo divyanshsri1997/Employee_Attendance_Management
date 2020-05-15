@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 
 import java.util.LinkedList;
@@ -13,7 +14,7 @@ public class TaskActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private TaskListAdapter mAdapter;
     private final LinkedList<String> taskList = new LinkedList<>();
-    public int taskCount;
+    public static int taskCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,8 +25,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView
         .OnNavigationItemSelectedListener {
 
     CalendarView cv;
-    TextView dateTextView, holidayTextView,weekDayTextView, dayTextView, taskTextView,greetTextView;
-    TextView nameTextView, presentTextView, absentTextView, plTextView, clTextView, slTextView;
+    TextView dateTextView, holidayTextView,weekDayTextView, dayTextView, taskTextView,greetTextView,
+    nameTextView, presentTextView, absentTextView, plTextView, clTextView, slTextView;
+    String currentDate;
 
 
     @Override
@@ -46,36 +48,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        this.taskTextView = findViewById(R.id.taskTextView);
-        taskTextView.setText("2");
-
-        cv = findViewById(R.id.holidayCalendarView);
-        this.dateTextView = findViewById(R.id.dateTextView);
-        long milliSeconds = cv.getDate();
-        Date date = new Date(milliSeconds);
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat df =
-                new SimpleDateFormat("dd-MM-YYYY HH");
-        String dateWithTime = df.format(date);
-        String currentDate = dateWithTime.substring(0,10);
-        int time = Integer.parseInt(dateWithTime.substring(11));
-        this.greetTextView = findViewById(R.id.greetTextView);
-        displayGreetMessage(time);
-        dateTextView.setText(currentDate);
-
         this.holidayTextView = findViewById(R.id.holidayTextView);
         this.weekDayTextView = findViewById(R.id.weekDayTextView);
         this.dayTextView = findViewById(R.id.dayTextView);
-        new FetchHoliday(dayTextView,weekDayTextView, holidayTextView, currentDate).execute();
-
+        this.cv = findViewById(R.id.holidayCalendarView);
+        this.dateTextView = findViewById(R.id.dateTextView);
         this.nameTextView = findViewById(R.id.nameTextView);
         this.presentTextView = findViewById(R.id.presentTextView);
         this.absentTextView = findViewById(R.id.absentTextView);
         this.plTextView = findViewById(R.id.plTextView);
         this.clTextView = findViewById(R.id.clTextView);
         this.slTextView = findViewById(R.id.slTextView);
+        this.greetTextView = findViewById(R.id.greetTextView);
+        this.taskTextView = findViewById(R.id.taskTextView);
+        taskTextView.setText("2");
+        long milliSeconds = cv.getDate();
+        displayCurrentDate(milliSeconds);
         new FetchEmployeeData(nameTextView,presentTextView,absentTextView,plTextView,slTextView,clTextView)
                 .execute();
-
+        new FetchHoliday(dayTextView,weekDayTextView, holidayTextView, currentDate).execute();
+    }
+    private void displayCurrentDate(long milliSeconds){
+        Date date = new Date(milliSeconds);
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat df =
+                new SimpleDateFormat("dd-MM-YYYY HH");
+        String dateWithTime = df.format(date);
+        currentDate = dateWithTime.substring(0,10);
+        String currentDay = currentDate.substring(0,2);
+        int time = Integer.parseInt(dateWithTime.substring(11));
+        dateTextView.setText(currentDate);
+        dayTextView.setText(currentDay);
+        displayGreetMessage(time);
     }
     private void displayGreetMessage(int time){
         if(time >=5 && time < 12){
@@ -144,16 +147,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_logout) {
+            //log out logic
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

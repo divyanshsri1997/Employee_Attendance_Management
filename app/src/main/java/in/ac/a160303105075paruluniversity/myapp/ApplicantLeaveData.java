@@ -27,6 +27,7 @@ public class ApplicantLeaveData {
         applicantData2.put("reason","Sick Leave");
 
     }
+
     Dictionary<String, String> getApplicationDetails(String name){
         if (applicantData1.get(name) == "applicantData1"){
             return applicantData1;
@@ -35,4 +36,5 @@ public class ApplicantLeaveData {
             return applicantData2;
         }
     }
+
 }

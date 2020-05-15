@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="6dp"
@@ -20,7 +21,7 @@
             android:layout_marginStart="8dp"
             android:background="@drawable/button_background"
             android:backgroundTint="@android:color/darker_gray"
-            android:text="LA"
+            android:text="@string/la"
             android:textColor="@android:color/holo_green_dark"
             android:textSize="27sp"
             android:textStyle="bold" />
@@ -46,10 +47,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
-                android:text="Requested on: 25 Feb 2020"
+                android:text="@string/requestDate"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#3041A1"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
 
             <TextView
                 android:id="@+id/applicantNameTextView"
@@ -57,15 +59,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
-                android:text="Requested By: Saurabh Shah"
+                android:text="@string/requested_by"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#3041A1"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
 
         </LinearLayout>
-
-
-
     </LinearLayout>
 
 </LinearLayout>
