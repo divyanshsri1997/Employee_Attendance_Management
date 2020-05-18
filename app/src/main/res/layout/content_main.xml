@@ -1,465 +1,463 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="in.ac.a160303105075paruluniversity.myapp.MainActivity"
     tools:showIn="@layout/app_bar_main"
     android:background="#FF1F49">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
 
-    <RelativeLayout
-        android:layout_width="368dp"
-        android:layout_height="100dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/relativeLayout">
-
-        <ImageView
-            android:id="@+id/greetImageView"
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:adjustViewBounds="false"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/greet_image1"
-            tools:ignore="ContentDescription" />
+            android:layout_height="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/dateTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@id/greetImageView"
-            android:layout_alignStart="@id/greetImageView"
-            android:layout_alignTop="@id/greetImageView"
-            android:gravity="center"
-            android:paddingTop="8dp"
-            android:text="@string/dateTextView"
-            android:textColor="@android:color/white"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/greetTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/greetTextView"
-            android:textColor="@android:color/white"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_alignEnd="@id/greetImageView"
-            android:layout_alignStart="@id/greetImageView"
-            android:layout_below="@id/dateTextView"/>
-        <TextView
-            android:id="@+id/nameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/employeeName"
-            android:textColor="@android:color/white"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:layout_alignEnd="@id/greetImageView"
-            android:layout_alignStart="@id/greetImageView"
-            android:layout_below="@id/greetTextView"/>
-
-    </RelativeLayout>
-
-
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/first"
-        android:layout_width="0dp"
-        android:layout_height="95dp"
-        android:layout_marginTop="8dp"
-        app:cardBackgroundColor="@color/colorAccent"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="30dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp">
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/greetImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/welcomeimage"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/greet_image1" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/dateTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:paddingTop="5dp"
-                android:text="@string/leaves"
-                android:textColor="#FF1F49"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
-                android:layout_marginTop="-9dp"
-                android:text="@string/pl"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="18sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="11dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/cl"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="18sp"
-                app:layout_constraintLeft_toRightOf="@+id/textView11"
-                app:layout_constraintRight_toLeftOf="@+id/toDate"
-                app:layout_constraintTop_toTopOf="@+id/textView11" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/sl"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="18sp"
-                android:id="@+id/toDate"
-                android:layout_marginEnd="68dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/textView7"
-                android:layout_marginBottom="-13dp" />
-
-            <TextView
-                android:id="@+id/plTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:layout_marginBottom="8dp"
-                android:onClick="launchMyLeavesActivity"
-                android:text="@string/plTextView"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11"
-                app:layout_constraintVertical_bias="0.444" />
-
-            <TextView
-                android:id="@+id/clTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="@string/clTextView"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-            <TextView
-                android:id="@+id/slTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="64dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/slTextView"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toDate" />
-        </android.support.constraint.ConstraintLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/second"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/first"
-        app:cardBackgroundColor="@color/colorAccent"
-        app:cardElevation="30dp"
-        app:cardCornerRadius="10dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/third">
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/alerts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/alerts"
-                android:textColor="#FF1F49"
-                android:textStyle="bold"
-                android:textSize="24sp"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                app:layout_constraintLeft_toLeftOf="parent" />
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/alertTextView"
+                android:layout_alignStart="@id/greetImageView"
+                android:layout_alignTop="@id/greetImageView"
+                android:layout_alignEnd="@id/greetImageView"
                 android:gravity="center"
-                android:textSize="40sp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/alerts"
-                android:layout_marginRight="8dp"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginLeft="8dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="8dp" />
-
-        </android.support.constraint.ConstraintLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/third"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="8dp"
-        app:cardBackgroundColor="@color/colorAccent"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="30dp"
-        app:layout_constraintLeft_toRightOf="@+id/second"
-        app:layout_constraintTop_toBottomOf="@+id/first"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp">
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tasks"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tasks"
-                android:textColor="#FF1F49"
-                android:textStyle="bold"
-                android:textSize="24sp"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                app:layout_constraintLeft_toLeftOf="parent" />
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/taskTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center"
-                android:onClick="launchTaskActivity"
-                android:text="@string/tasksTextView"
-                android:textSize="40sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tasks" />
-
-        </android.support.constraint.ConstraintLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/fourth"
-        android:layout_width="0dp"
-        android:layout_height="105dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
-        app:cardBackgroundColor="@color/colorAccent"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="30dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/second"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp">
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/attendance"
-                android:onClick="launchAttendanceLogActivity"
-                android:textSize="24sp"
-                android:textColor="#FF1F49"
-                android:textStyle="bold"
-                android:paddingTop="17dp"
-                android:layout_marginLeft="8dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="0dp"
-                app:layout_constraintRight_toLeftOf="@+id/calendarView3"
-                android:layout_marginRight="8dp"
-                app:layout_constraintHorizontal_bias="0.0"
-                android:id="@+id/attendanceTextView" />
-
-            <CalendarView
-                android:id="@+id/calendarView3"
-                android:layout_width="179dp"
-                android:layout_height="45dp"
-                android:layout_marginEnd="0dp"
-                android:layout_marginTop="0dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginBottom="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView2"
-                tools:layout_editor_absoluteX="173dp" />
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="-3dp"
-                android:text="@string/presentTextView"
-                android:textColor="@android:color/holo_green_dark"
+                android:paddingTop="8dp"
+                android:text="@string/dateTextView"
+                android:textColor="@android:color/white"
                 android:textSize="15sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/attendanceTextView" />
+                android:textStyle="bold" />
+
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/greetTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="60dp"
-                android:layout_marginTop="-3dp"
-                android:text="@string/absentTextView"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="15sp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/calendarView3" />
+                android:layout_below="@id/dateTextView"
+                android:layout_alignStart="@id/greetImageView"
+                android:layout_alignEnd="@id/greetImageView"
+                android:gravity="center"
+                android:text="@string/greetTextView"
+                android:textColor="@android:color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/presentTextView"
-                android:layout_width="70dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginBottom="8dp"
-                android:onClick="launchAttendanceLogActivity"
-                android:text="@string/presentCount"
+                android:id="@+id/nameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/greetTextView"
+                android:layout_alignStart="@id/greetImageView"
+                android:layout_alignEnd="@id/greetImageView"
                 android:gravity="center"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                android:text="@string/employeeName"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
-            <TextView
-                android:id="@+id/absentTextView"
-                android:layout_width="70dp"
-                android:layout_height="30dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center"
-                android:onClick="launchAttendanceLogActivity"
-                android:text="@string/absentCount"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
-        </android.support.constraint.ConstraintLayout>
-    </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/fifth"
-        android:layout_width="0dp"
-        android:layout_height="130dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
-        app:cardBackgroundColor="@color/colorAccent"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="30dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fourth"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintHorizontal_bias="0.0">
-        <android.support.constraint.ConstraintLayout
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/first"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/colorAccent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/leaves"
+                    android:textColor="#FF1F49"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="64dp"
+                    android:layout_marginTop="-9dp"
+                    android:text="@string/pl"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/cl"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toRightOf="@+id/textView11"
+                    app:layout_constraintRight_toLeftOf="@+id/toDate"
+                    app:layout_constraintTop_toTopOf="@+id/textView11" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sl"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="18sp"
+                    android:id="@+id/toDate"
+                    android:layout_marginEnd="68dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView7"
+                    android:layout_marginBottom="-13dp" />
+
+                <TextView
+                    android:id="@+id/plTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginBottom="8dp"
+                    android:onClick="launchMyLeavesActivity"
+                    android:text="@string/plTextView"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView11"
+                    app:layout_constraintVertical_bias="0.444" />
+
+                <TextView
+                    android:id="@+id/clTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/clTextView"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+                <TextView
+                    android:id="@+id/slTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="64dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/slTextView"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toDate" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/second"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/first"
+            app:cardBackgroundColor="@color/colorAccent"
+            app:cardElevation="30dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/third">
+
+            <android.support.constraint.ConstraintLayout
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="25dp"
-                android:text="@string/holiday"
-                android:textColor="#FF1F49"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:paddingTop="17dp"
-                android:layout_marginStart="8dp"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/holidayCalendarView"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_width="match_parent">
 
-            <CalendarView
-                android:id="@+id/holidayCalendarView"
-                android:layout_width="186dp"
-                android:layout_height="54dp"
-                android:layout_marginEnd="0dp"
-                android:layout_marginTop="0dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/textView3"
-                android:layout_marginBottom="8dp" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/alerts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/alerts"
+                    android:textColor="#FF1F49"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/alertTextView"
+                    android:gravity="center"
+                    android:textSize="40sp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/alerts"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginLeft="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="8dp" />
 
-            <TextView
-                android:id="@+id/holidayTextView"
-                android:layout_width="wrap_content"
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/third"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/colorAccent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="30dp"
+            app:layout_constraintLeft_toRightOf="@+id/second"
+            app:layout_constraintTop_toBottomOf="@+id/first"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp">
+
+            <android.support.constraint.ConstraintLayout
                 android:layout_height="wrap_content"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="60dp"
-                android:text="@string/holidayTextView"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/dayTextView"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_width="match_parent">
 
-            <TextView
-                android:id="@+id/dayTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="7dp"
-                android:text="@string/date"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="35sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tasks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tasks"
+                    android:textColor="#FF1F49"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent" />
 
-            <TextView
-                android:id="@+id/weekDayTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="35dp"
-                android:text="@string/day"
-                android:textColor="@android:color/holo_blue_dark"
-                app:layout_constraintStart_toEndOf="@+id/dayTextView"
-                app:layout_constraintTop_toBottomOf="@+id/holidayTextView" />
-        </android.support.constraint.ConstraintLayout>
-    </android.support.v7.widget.CardView>
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/taskTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:onClick="launchTaskActivity"
+                    android:text="@string/tasksTextView"
+                    android:textSize="40sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tasks" />
 
-</android.support.constraint.ConstraintLayout>
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/fourth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/colorAccent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/second"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/attendanceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="8dp"
+                    android:onClick="launchAttendanceLogActivity"
+                    android:text="@string/attendance"
+                    android:textColor="#FF1F49"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/calendarView3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CalendarView
+                    android:id="@+id/calendarView3"
+                    android:layout_width="179dp"
+                    android:layout_height="42dp"
+                    android:layout_marginBottom="15dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView2"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-3dp"
+                    android:text="@string/presentTextView"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="15sp"
+                    android:layout_marginStart="50dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/attendanceTextView" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="62dp"
+                    android:text="@string/absentTextView"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/attendanceTextView" />
+
+                <TextView
+                    android:id="@+id/presentTextView"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:onClick="launchAttendanceLogActivity"
+                    android:text="@string/presentCount"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+                <TextView
+                    android:id="@+id/absentTextView"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:onClick="launchAttendanceLogActivity"
+                    android:text="@string/absentCount"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/fifth"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/colorAccent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fourth"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintHorizontal_bias="0.0">
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="25dp"
+                    android:text="@string/holiday"
+                    android:textColor="#FF1F49"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/holidayCalendarView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CalendarView
+                    android:id="@+id/holidayCalendarView"
+                    android:layout_width="179dp"
+                    android:layout_height="42dp"
+                    android:layout_marginBottom="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView3"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/holidayTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/holidayTextView"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/dayTextView"
+                    app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+                <TextView
+                    android:id="@+id/dayTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:text="@string/date"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="35sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                <TextView
+                    android:id="@+id/weekDayTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:text="@string/day"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@android:color/holo_blue_dark"
+                    app:layout_constraintStart_toEndOf="@+id/dayTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/holidayTextView" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

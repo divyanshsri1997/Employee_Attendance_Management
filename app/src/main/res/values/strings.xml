@@ -76,4 +76,5 @@
     <string name="requestDate">Requested on: 25 Feb 2020</string>
     <string name="requested_by">Requested By: Saurabh Shah</string>
     <string name="l">L</string>
+    <string name="welcomeimage">welcomeImage</string>
 </resources>
