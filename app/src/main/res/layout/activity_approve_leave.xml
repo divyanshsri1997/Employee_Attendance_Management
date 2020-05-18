@@ -1,223 +1,230 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="25dp"
-    tools:context="in.ac.a160303105075paruluniversity.myapp.ApproveLeaveActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="in.ac.a160303105075paruluniversity.myapp.ApproveLeaveActivity"
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="10dp">
-
-        <TextView
+        android:padding="25dp">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_light"
-            android:text="@string/applied_by"
-            android:textColor="#7C7171"
-            android:textSize="10sp"
-            tools:ignore="SmallSp" />
+            android:orientation="vertical"
+            android:paddingTop="10dp">
 
-        <TextView
-            android:id="@+id/applicantName"
-            style="@style/sectionHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:paddingTop="2dp"
-            android:text="@string/applicantName"
-            android:textColor="#201414"
-            android:textSize="12sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="25dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
+                android:text="@string/applied_by"
+                android:textColor="#7C7171"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/roboto_light"
-            android:text="@string/from_date"
-            android:textColor="#7C7171"
-            android:textSize="10sp"
-            tools:ignore="SmallSp" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/roboto_light"
-            android:text="@string/to_date"
-            android:textColor="#7C7171"
-            android:textSize="10sp"
-            tools:ignore="SmallSp" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/fromDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/roboto"
-            android:paddingTop="2dp"
-            android:text="@string/fromDate"
-            android:textColor="#201414"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/toDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/roboto"
-            android:paddingStart="13dp"
-            android:paddingEnd="0dp"
-            android:paddingTop="2dp"
-            android:text="@string/toDate"
-            android:textColor="#201414"
-            android:textSize="12sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="25dp">
-
-        <TextView
+            <TextView
+                android:id="@+id/applicantName"
+                style="@style/sectionHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="2dp"
+                android:text="@string/applicantName"
+                android:textColor="#201414"
+                android:textSize="12sp" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_light"
-            android:text="@string/no_of_days"
-            android:textColor="#7C7171"
-            android:textSize="10sp"
-            tools:ignore="SmallSp" />
+            android:orientation="horizontal"
+            android:paddingTop="25dp">
 
-        <TextView
-            android:id="@+id/noOfDays"
-            style="@style/sectionHeader"
-            android:layout_width="55dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:paddingTop="2dp"
-            android:text="@string/total_days"
-            android:textColor="#201414"
-            android:textSize="12sp" />
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_light"
+                android:text="@string/from_date"
+                android:textColor="#7C7171"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="25dp">
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_light"
+                android:text="@string/to_date"
+                android:textColor="#7C7171"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
 
-        <TextView
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_light"
-            android:text="@string/reason"
-            android:textColor="#7C7171"
-            android:textSize="10sp"
-            tools:ignore="SmallSp" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/reason"
-            style="@style/sectionHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:paddingTop="2dp"
-            android:text="@string/reason_text"
-            android:textColor="#201414"
-            android:textSize="12sp" />
+            <TextView
+                android:id="@+id/fromDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="2dp"
+                android:text="@string/fromDate"
+                android:textColor="#201414"
+                android:textSize="12sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="280dp"
-            android:paddingEnd="0dp"
-            android:text="@string/textLimit_reason"
-            android:textSize="10sp"
-            tools:ignore="SmallSp" />
+            <TextView
+                android:id="@+id/toDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:paddingStart="13dp"
+                android:paddingEnd="0dp"
+                android:paddingTop="2dp"
+                android:text="@string/toDate"
+                android:textColor="#201414"
+                android:textSize="12sp" />
+
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="25dp"
-        android:paddingBottom="10dp">
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_light"
-            android:text="@string/remark_for_rejection"
-            android:textColor="#7C7171"
-            android:textSize="10sp"
-            tools:ignore="SmallSp" />
+            android:orientation="vertical"
+            android:paddingTop="25dp">
 
-        <EditText
-            android:id="@+id/remarkTextView"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
+                android:text="@string/no_of_days"
+                android:textColor="#7C7171"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:id="@+id/noOfDays"
+                style="@style/sectionHeader"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="2dp"
+                android:text="@string/total_days"
+                android:textColor="#201414"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:paddingTop="2dp"
-            android:textColor="#201414"
-            android:textSize="12sp"
-            android:text="@string/rejectionRemark"/>
+            android:orientation="vertical"
+            android:paddingTop="25dp">
 
-        <TextView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
+                android:text="@string/reason"
+                android:textColor="#7C7171"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:id="@+id/reason"
+                style="@style/sectionHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="2dp"
+                android:text="@string/reason_text"
+                android:textColor="#201414"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="0dp"
+                android:text="@string/textLimit_reason"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="280dp"
-            android:paddingEnd="0dp"
-            android:text="@string/text_limit_remark"
-            android:textSize="10sp"
-            tools:ignore="SmallSp" />
+            android:orientation="vertical"
+            android:paddingTop="25dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
+                android:text="@string/remark_for_rejection"
+                android:textColor="#7C7171"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+
+            <EditText
+                android:id="@+id/remarkTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="2dp"
+                android:textColor="#201414"
+                android:textSize="12sp"
+                android:text="@string/rejectionRemark"
+                android:inputType="text"
+                android:importantForAutofill="no" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="0dp"
+                android:text="@string/text_limit_remark"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:paddingTop="80dp"
+            android:paddingBottom="20dp">
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/roundbutton2"
+                android:text="@string/approveButton"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:layout_alignParentEnd="true"
+                android:text="@string/rejectButton"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
     </LinearLayout>
+</ScrollView>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:paddingBottom="20dp">
-
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:background="@drawable/roundbutton2"
-            android:text="@string/approveButton"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textAlignment="center"
-            android:textStyle="bold"/>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_button"
-            android:layout_alignParentEnd="true"
-            android:text="@string/rejectButton"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
-
-    </RelativeLayout>
-
-</LinearLayout>
