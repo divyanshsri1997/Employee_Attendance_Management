@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/leaveBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/button_background"
+            android:backgroundTint="@android:color/darker_gray"
+            android:text="@string/la"
+            android:fontFamily="@font/roboto"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/leaveDateTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_10_may_2020"
+                android:textColor="#534242"
+                android:fontFamily="@font/roboto"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/approvedLeaveTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:textColor="#8F8888"
+                android:text="@string/leave_application"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

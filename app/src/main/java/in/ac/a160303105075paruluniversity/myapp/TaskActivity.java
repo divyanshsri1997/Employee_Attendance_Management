@@ -28,5 +28,4 @@ public class TaskActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
-
 }

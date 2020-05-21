@@ -37,6 +37,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/total"
+                android:fontFamily="@font/roboto"
                 android:textColor="#1E1414" />
 
             <TextView
@@ -45,6 +46,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/present"
+                android:fontFamily="@font/roboto"
                 android:textColor="#4CAF50" />
 
             <TextView
@@ -53,6 +55,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/absent"
+                android:fontFamily="@font/roboto"
                 android:textColor="#F44336" />
 
             <TextView
@@ -61,6 +64,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/holidays"
+                android:fontFamily="@font/roboto"
                 android:textColor="#3F51B5" />
 
         </LinearLayout>
@@ -68,7 +72,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="10dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="21dp"
             android:showDividers="end"
             android:paddingBottom="10dp">
 
@@ -78,6 +83,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/totalDays"
+                android:fontFamily="@font/roboto"
                 android:textColor="#1E1414"
                 android:textSize="22sp" />
 
@@ -87,6 +93,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/totalPresentDays"
+                android:fontFamily="@font/roboto"
                 android:textColor="#4CAF50"
                 android:textSize="22sp" />
 
@@ -96,6 +103,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/absentDays"
+                android:fontFamily="@font/roboto"
                 android:textColor="#F44336"
                 android:textSize="22sp" />
 
@@ -105,6 +113,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/_2"
+                android:fontFamily="@font/roboto"
                 android:textColor="#3F51B5"
                 android:textSize="22sp" />
 
@@ -120,14 +129,13 @@
                 android:id="@+id/imageButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="2dp"
+                android:layout_gravity="center_vertical"
                 android:background="@drawable/button_background"
                 android:backgroundTint="@android:color/darker_gray"
                 android:text="@string/p"
+                android:fontFamily="@font/roboto"
                 android:textColor="@android:color/holo_green_dark"
-                android:textSize="27sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -142,11 +150,13 @@
                     android:textSize="25sp"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:paddingLeft="10dp"
-                    android:text="@string/presentDate" />
+                    android:text="@string/presentDate"
+                    android:fontFamily="@font/roboto"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/presentDuration"
+                    android:fontFamily="@font/roboto"
                     android:paddingLeft="10dp"/>
             </LinearLayout>
         </LinearLayout>
@@ -162,14 +172,13 @@
                 android:id="@+id/imageButtonAbsent"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="2dp"
+                android:layout_gravity="center_vertical"
                 android:background="@drawable/button_background"
                 android:backgroundTint="@android:color/darker_gray"
                 android:text="@string/a"
+                android:fontFamily="@font/roboto"
                 android:textColor="@android:color/holo_red_dark"
-                android:textSize="27sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -184,12 +193,10 @@
                     android:textSize="25sp"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:paddingLeft="10dp"
-                    android:text="@string/absentString" />
+                    android:text="@string/absentString"
+                    android:fontFamily="@font/roboto"/>
             </LinearLayout>
         </LinearLayout>
-
-
-
 
     </LinearLayout>
 </ScrollView>
