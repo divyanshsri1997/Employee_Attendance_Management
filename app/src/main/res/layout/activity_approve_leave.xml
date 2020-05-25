@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="in.ac.a160303105075paruluniversity.myapp.ApproveLeaveActivity"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="in.ac.a160303105075paruluniversity.myapp.ApproveLeaveActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -147,14 +147,6 @@
                 android:text="@string/reason_text"
                 android:textColor="#201414"
                 android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingEnd="0dp"
-                android:text="@string/textLimit_reason"
-                android:textSize="10sp"
-                tools:ignore="SmallSp" />
         </LinearLayout>
 
         <LinearLayout
@@ -172,26 +164,24 @@
                 android:textColor="@color/lightHeading"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
-
-            <EditText
-                android:id="@+id/remarkTextView"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:paddingTop="2dp"
-                android:textColor="#201414"
-                android:textSize="12sp"
-                android:text="@string/rejectionRemark"
-                android:inputType="text"
-                android:importantForAutofill="no" />
+                app:counterEnabled="true"
+                app:counterMaxLength="50">
+                <EditText
+                    android:id="@+id/remarkTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:paddingTop="2dp"
+                    android:textColor="#201414"
+                    android:textSize="12sp"
+                    android:text="@string/rejectionRemark"
+                    android:inputType="text"
+                    android:importantForAutofill="no" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingEnd="0dp"
-                android:text="@string/text_limit_remark"
-                android:textSize="10sp"
-                tools:ignore="SmallSp" />
+            </android.support.design.widget.TextInputLayout>
         </LinearLayout>
 
         <RelativeLayout
