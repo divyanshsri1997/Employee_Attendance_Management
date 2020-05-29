@@ -68,9 +68,6 @@ public class NetworkUtils {
                 // Stream was empty. No point in parsing.
                 return null;
             }
-            else{
-                System.out.println("Fetching data was successful");
-            }
             JSONString = builder.toString();
         } catch (IOException e) {
             e.printStackTrace();

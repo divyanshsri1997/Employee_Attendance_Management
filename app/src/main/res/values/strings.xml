@@ -40,7 +40,7 @@
     <string name="alerts">Alerts</string>
     <string name="alertTextView">3</string>
     <string name="tasks">Tasks</string>
-    <string name="tasksTextView">0</string>
+    <string name="tasksTextView">2</string>
     <string name="attendance">Attendance</string>
     <string name="presentTextView">Present</string>
     <string name="absentTextView">Absent</string>

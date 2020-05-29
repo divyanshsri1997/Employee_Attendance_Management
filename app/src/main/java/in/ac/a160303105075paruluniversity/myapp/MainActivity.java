@@ -1,22 +1,29 @@
 package in.ac.a160303105075paruluniversity.myapp;
 
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView
     TextView dateTextView, holidayTextView,weekDayTextView, dayTextView, taskTextView,greetTextView,
     nameTextView, presentTextView, absentTextView, plTextView, clTextView, slTextView;
     String currentDate;
+    private CheckConnection receiver;
 
 
     @Override
@@ -48,10 +56,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        receiver = new CheckConnection(this){
+            @Override
+            protected void onNetworkChange() {
+                boolean networkStatus = isConnected();
+                if(!networkStatus){
+                    //Toast.makeText(getApplicationContext(),"No internet...", Toast.LENGTH_SHORT).show();
+                    Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),"No Internet Connection",Snackbar.LENGTH_INDEFINITE);
+                    snackbar.show();
+                }else{
+                    Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),"Connected...",Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                    updateDashboard();
+                }
+            }
+        };
+        registerReceiver(receiver, filter);
+    }
+
+
+    private void updateDashboard(){
         this.holidayTextView = findViewById(R.id.holidayTextView);
         this.weekDayTextView = findViewById(R.id.weekDayTextView);
         this.dayTextView = findViewById(R.id.dayTextView);
-        this.cv = findViewById(R.id.holidayCalendarView);
         this.dateTextView = findViewById(R.id.dateTextView);
         this.nameTextView = findViewById(R.id.nameTextView);
         this.presentTextView = findViewById(R.id.presentTextView);
@@ -61,13 +89,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView
         this.slTextView = findViewById(R.id.slTextView);
         this.greetTextView = findViewById(R.id.greetTextView);
         this.taskTextView = findViewById(R.id.taskTextView);
-        taskTextView.setText("2");
+        this.cv = findViewById(R.id.holidayCalendarView);
         long milliSeconds = cv.getDate();
         displayCurrentDate(milliSeconds);
-        new FetchEmployeeData(nameTextView,presentTextView,absentTextView,plTextView,slTextView,clTextView)
+        new FetchEmployeeData(nameTextView, presentTextView, absentTextView, plTextView, slTextView, clTextView)
                 .execute();
-        new FetchHoliday(dayTextView,weekDayTextView, holidayTextView, currentDate).execute();
+        new FetchHoliday(dayTextView, weekDayTextView, holidayTextView, currentDate).execute();
     }
+
+
+
+    private boolean isConnected() {
+        ConnectivityManager cm = (ConnectivityManager)this
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+    }
+
     private void displayCurrentDate(long milliSeconds){
         Date date = new Date(milliSeconds);
         @SuppressLint("SimpleDateFormat") SimpleDateFormat df =
@@ -81,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView
         displayGreetMessage(time);
     }
     private void displayGreetMessage(int time){
-        if(time >=5 && time < 12){
+        if(time >=4 && time < 12){
             greetTextView.setText(R.string.morningMsg);
         }
         else if(time < 16){

@@ -57,14 +57,14 @@ public class FetchHoliday extends AsyncTask<Void,Void,String> {
                 }
                 i++;
             }
-            updateUI();
+            updateHolidayCardView();
         }catch(Exception e){
                 // If onPostExecute does not receive a proper JSON string,
                 // update the UI to show failed results.
                 holidayTextView.get().setText("No response");
         }
     }
-    public void updateUI(){
+    public void updateHolidayCardView(){
         dayTextView.get().setText(holidayManager.displayCurrentDay());
         weekDayTextView.get().setText(holidayManager.displayWeekDay());
     }

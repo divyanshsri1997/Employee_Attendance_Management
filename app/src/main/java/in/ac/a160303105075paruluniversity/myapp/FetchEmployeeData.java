@@ -43,7 +43,7 @@ public class FetchEmployeeData extends AsyncTask<Void,Void,String> {
             // Get the JSONArray of names.
             JSONArray itemsArray = jsonObject.getJSONArray("Employees");
             int i = 0;
-            String employeeName = null,present,absent,pl,cl,sl;
+            String employeeName = null,total = "/5",present,absent,pl,cl,sl;
 
             while (i < itemsArray.length() && (employeeName == null)) {
                 // Get the current item information.
@@ -56,11 +56,11 @@ public class FetchEmployeeData extends AsyncTask<Void,Void,String> {
                     presentTextView.get().setText(present);
                     absent = employees.getString("absent")+"/22";
                     absentTextView.get().setText(absent);
-                    pl = employees.getString("pl")+"/5";
+                    pl = employees.getString("pl")+total;
                     plTextView.get().setText(pl);
-                    cl = employees.getString("cl")+"/5";
+                    cl = employees.getString("cl")+total;
                     clTextView.get().setText(cl);
-                    sl = employees.getString("sl")+"/5";
+                    sl = employees.getString("sl")+total;
                     slTextView.get().setText(sl);
                 } catch (Exception e) {
                     e.printStackTrace();
