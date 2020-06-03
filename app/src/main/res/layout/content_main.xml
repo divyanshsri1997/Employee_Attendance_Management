@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="in.ac.a160303105075paruluniversity.myapp.MainActivity"
+    tools:context="in.ac.a160303105075paruluniversity.myapp.View.MainActivity"
     tools:showIn="@layout/app_bar_main"
     android:background="#FF1F49">
     <android.support.constraint.ConstraintLayout

@@ -9,21 +9,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Dictionary;
-import java.util.LinkedList;
 
 public class ApprovedLeavesAdapter extends RecyclerView.Adapter<ApprovedLeavesAdapter.ApprovedLeavesViewHolder> {
 
-    private final LinkedList<String> leaveList;
-    private final MyLeavesData leavesData;
+    private final ArrayList<Dictionary> leaveArrayList;
     private LayoutInflater mInflater;
     private Context mContext;
 
-    ApprovedLeavesAdapter(Context context, LinkedList<String> leavesList, MyLeavesData leavesData){
+    public ApprovedLeavesAdapter(Context context, ArrayList<Dictionary> leaveArrayList){
         this.mContext = context;
         mInflater = LayoutInflater.from(context);
-        this.leaveList = leavesList;
-        this.leavesData = leavesData;
+        this.leaveArrayList = leaveArrayList;
     }
 
     @Override
@@ -34,23 +32,26 @@ public class ApprovedLeavesAdapter extends RecyclerView.Adapter<ApprovedLeavesAd
 
     @Override
     public void onBindViewHolder(ApprovedLeavesAdapter.ApprovedLeavesViewHolder holder, int position) {
-        Dictionary<String,String> leaves;
-        String reason = leaveList.get(position);
-        leaves = leavesData.getLeaveDetails(reason);
-        holder.leaveItemTextView.setText(reason);
-        if(leaves.get("type") == "SL"){
+        Dictionary leaves;
+        leaves = leaveArrayList.get(position);
+        holder.leaveItemTextView.setText((String)leaves.get("Reason"));
+        if(leaves.get("type").equals("SL")){
             holder.leaveButton.setTextColor(Color.RED);
+        }else if(leaves.get("type").equals("PL")){
+            holder.leaveButton.setTextColor(Color.GREEN);
+        }else{
+            holder.leaveButton.setTextColor(Color.BLUE);
         }
-        holder.leaveButton.setText(leaves.get("type"));
-        holder.leaveDateTextView.setText(leaves.get("date"));
+        holder.leaveButton.setText((String)leaves.get("type"));
+        holder.leaveDateTextView.setText((String)leaves.get("date"));
     }
 
     @Override
     public int getItemCount() {
-        return leaveList.size();
+        return leaveArrayList.size();
     }
 
-    class ApprovedLeavesViewHolder extends RecyclerView.ViewHolder{
+    static class ApprovedLeavesViewHolder extends RecyclerView.ViewHolder{
 
         final TextView leaveItemTextView,leaveDateTextView;
         final Button leaveButton;

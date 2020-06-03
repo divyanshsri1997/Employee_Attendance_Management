@@ -1,4 +1,4 @@
-package in.ac.a160303105075paruluniversity.myapp;
+package in.ac.a160303105075paruluniversity.myapp.Model;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
@@ -6,9 +6,9 @@ import java.util.Hashtable;
 public class ApplicantLeaveData {
 
     public Dictionary<String, String> applicantData1 = new Hashtable<>();
-    public Dictionary<String, String> applicantData2 = new Hashtable();
+    public Dictionary<String, String> applicantData2 = new Hashtable<>();
 
-    ApplicantLeaveData(){
+    public ApplicantLeaveData(){
 
         applicantData1.put("applicantName","Saurabh Shah");
         applicantData1.put("fromDate","25 May 2020");
@@ -26,15 +26,6 @@ public class ApplicantLeaveData {
         applicantData2.put("noOfDays","3");
         applicantData2.put("reason","Sick Leave");
 
-    }
-
-    Dictionary<String, String> getApplicationDetails(String name){
-        if (applicantData1.get(name) == "applicantData1"){
-            return applicantData1;
-        }
-        else{
-            return applicantData2;
-        }
     }
 
 }

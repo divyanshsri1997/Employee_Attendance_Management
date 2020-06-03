@@ -2,7 +2,6 @@ package in.ac.a160303105075paruluniversity.myapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +9,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Dictionary;
-import java.util.LinkedList;
+
+import in.ac.a160303105075paruluniversity.myapp.View.ApproveLeaveActivity;
 
 /**
  * Created by Divyansh Srivastava on 28-Apr-20.
@@ -19,16 +20,14 @@ import java.util.LinkedList;
 
 public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskViewHolder> {
 
-    private final LinkedList<String> taskList;
-    private final ApplicantLeaveData applicantData;
+    private final ArrayList<Dictionary> taskArrayList;
     private LayoutInflater mInflater;
     private Context mContext;
 
-    TaskListAdapter(Context context, LinkedList<String> taskList, ApplicantLeaveData applicantData) {
+    public TaskListAdapter(Context context, ArrayList<Dictionary> taskArrayList) {
         mInflater = LayoutInflater.from(context);
         this.mContext = context;
-        this.taskList = taskList;
-        this.applicantData = applicantData;
+        this.taskArrayList = taskArrayList;
     }
 
     @Override
@@ -39,11 +38,11 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
     @Override
     public void onBindViewHolder(TaskListAdapter.TaskViewHolder holder, int position) {
-        Dictionary<String,String> applicationDetails;
-        String name = taskList.get(position);
+        Dictionary applicationDetails;
+        applicationDetails = taskArrayList.get(position);
+        String name = (String) applicationDetails.get("applicantName");
         String applicantName = "Requested By: "+ name;
-        applicationDetails = applicantData.getApplicationDetails(name);
-        String applicationTitle = applicationDetails.get("applicationTitle");
+        String applicationTitle = (String) applicationDetails.get("applicationTitle");
         String requestDate = "Requested On: "+ applicationDetails.get("fromDate");
         holder.taskItemTextView.setText(applicationTitle);
         holder.fromDateTextView.setText(requestDate);
@@ -64,7 +63,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
     @Override
     public int getItemCount() {
-        return taskList.size();
+        return taskArrayList.size();
     }
 
     class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -89,9 +88,8 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         @Override
         public void onClick(View v) {
             int mPosition = getLayoutPosition();
-            String name = taskList.get(mPosition);
-            Intent intent = new Intent(mContext,ApproveLeaveActivity.class);
-            intent.putExtra("message", name);
+            Intent intent = new Intent(mContext, ApproveLeaveActivity.class);
+            intent.putExtra("position",mPosition);
             mContext.startActivity(intent);
         }
     }

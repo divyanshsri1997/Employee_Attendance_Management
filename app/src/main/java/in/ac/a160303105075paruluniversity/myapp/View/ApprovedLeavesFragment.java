@@ -1,4 +1,4 @@
-package in.ac.a160303105075paruluniversity.myapp;
+package in.ac.a160303105075paruluniversity.myapp.View;
 
 
 import android.os.Bundle;
@@ -9,7 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.Dictionary;
 import java.util.LinkedList;
+
+import in.ac.a160303105075paruluniversity.myapp.ApprovedLeavesAdapter;
+import in.ac.a160303105075paruluniversity.myapp.Model.MyLeavesData;
+import in.ac.a160303105075paruluniversity.myapp.R;
 
 
 /**
@@ -20,6 +26,7 @@ public class ApprovedLeavesFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ApprovedLeavesAdapter mAdapter;
     private final LinkedList<String> leaveList = new LinkedList<>();
+    private final ArrayList<Dictionary> leaveArrayList = new ArrayList<>();
     public ApprovedLeavesFragment() {
         // Required empty public constructor
     }
@@ -31,9 +38,9 @@ public class ApprovedLeavesFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_approved_leaves, container, false);
         mRecyclerView = view.findViewById(R.id.approvedLeaveRecyclerView);
-        leaveList.add(new MyLeavesData().approvedLeaveData1.get("Reason"));
-        leaveList.add(new MyLeavesData().approvedLeaveData2.get("Reason"));
-        mAdapter = new ApprovedLeavesAdapter(this.getActivity(),leaveList,new MyLeavesData());
+        leaveArrayList.add(new MyLeavesData().approvedLeaveData1);
+        leaveArrayList.add(new MyLeavesData().approvedLeaveData2);
+        mAdapter = new ApprovedLeavesAdapter(this.getActivity(),leaveArrayList);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         return view;

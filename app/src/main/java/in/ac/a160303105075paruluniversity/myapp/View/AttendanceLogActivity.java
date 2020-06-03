@@ -1,7 +1,9 @@
-package in.ac.a160303105075paruluniversity.myapp;
+package in.ac.a160303105075paruluniversity.myapp.View;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import in.ac.a160303105075paruluniversity.myapp.R;
 
 public class AttendanceLogActivity extends AppCompatActivity {
 

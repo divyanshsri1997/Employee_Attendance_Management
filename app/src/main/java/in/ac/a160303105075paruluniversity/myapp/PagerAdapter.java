@@ -4,6 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import in.ac.a160303105075paruluniversity.myapp.View.ApprovedLeavesFragment;
+import in.ac.a160303105075paruluniversity.myapp.View.PendingLeavesFragment;
+import in.ac.a160303105075paruluniversity.myapp.View.RejectedLeavesFragment;
+
 /**
  * Created by Divyansh Srivastava on 30-Apr-20.
  */

@@ -1,9 +1,12 @@
-package in.ac.a160303105075paruluniversity.myapp;
+package in.ac.a160303105075paruluniversity.myapp.View;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+
+import in.ac.a160303105075paruluniversity.myapp.PagerAdapter;
+import in.ac.a160303105075paruluniversity.myapp.R;
 
 public class MyLeavesActivity extends AppCompatActivity {
 
@@ -12,12 +15,12 @@ public class MyLeavesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_leaves);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Approved"));
         tabLayout.addTab(tabLayout.newTab().setText("Pending"));
         tabLayout.addTab(tabLayout.newTab().setText("Rejected"));
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        final ViewPager viewPager = findViewById(R.id.pager);
         final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
 

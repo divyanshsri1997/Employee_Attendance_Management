@@ -1,4 +1,4 @@
-package in.ac.a160303105075paruluniversity.myapp;
+package in.ac.a160303105075paruluniversity.myapp.View;
 
 
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import in.ac.a160303105075paruluniversity.myapp.R;
 
 
 /**

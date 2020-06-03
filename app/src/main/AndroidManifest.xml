@@ -13,18 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".View.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".AttendanceLogActivity"
+            android:name=".View.AttendanceLogActivity"
             android:label="My Attendance Log"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".View.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="in.ac.a160303105075paruluniversity.myapp.MainActivity" />
+                android:value="in.ac.a160303105075paruluniversity.myapp.View.MainActivity" />
         </activity>
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".View.SplashScreenActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -34,28 +34,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TaskActivity"
+            android:name=".View.TaskActivity"
             android:label="My Tasks"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".View.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="in.ac.a160303105075paruluniversity.myapp.MainActivity" />
+                android:value="in.ac.a160303105075paruluniversity.myapp.View.MainActivity" />
         </activity>
         <activity
-            android:name=".ApproveLeaveActivity"
+            android:name=".View.ApproveLeaveActivity"
             android:label="Approve Leave"
-            android:parentActivityName=".TaskActivity">
+            android:parentActivityName=".View.TaskActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="in.ac.a160303105075paruluniversity.myapp.MainActivity" />
+                android:value="in.ac.a160303105075paruluniversity.myapp.View.MainActivity" />
         </activity>
         <activity
-            android:name=".MyLeavesActivity"
+            android:name=".View.MyLeavesActivity"
             android:label="My Leaves"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".View.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="in.ac.a160303105075paruluniversity.myapp.MainActivity" />
+                android:value="in.ac.a160303105075paruluniversity.myapp.View.MainActivity" />
         </activity>
 
         <meta-data

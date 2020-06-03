@@ -15,7 +15,7 @@ public class FetchHoliday extends AsyncTask<Void,Void,String> {
     private String currentDate;
     private HolidayManager holidayManager;
 
-    FetchHoliday(TextView dayTextView,TextView weekDayTextView,TextView holidayTextView, String currentDate){
+    public FetchHoliday(TextView dayTextView, TextView weekDayTextView, TextView holidayTextView, String currentDate){
         this.dayTextView = new WeakReference<>(dayTextView);
         this.holidayTextView = new WeakReference<>(holidayTextView);
         this.weekDayTextView = new WeakReference<>(weekDayTextView);

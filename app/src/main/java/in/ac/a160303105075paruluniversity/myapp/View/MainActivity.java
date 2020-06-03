@@ -1,7 +1,7 @@
-package in.ac.a160303105075paruluniversity.myapp;
+package in.ac.a160303105075paruluniversity.myapp.View;
 
 import android.annotation.SuppressLint;
-import android.content.BroadcastReceiver;
+import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
@@ -17,23 +18,40 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import in.ac.a160303105075paruluniversity.myapp.CheckConnection;
+import in.ac.a160303105075paruluniversity.myapp.FetchHoliday;
+import in.ac.a160303105075paruluniversity.myapp.Model.EmployeeModel;
+import in.ac.a160303105075paruluniversity.myapp.R;
+import in.ac.a160303105075paruluniversity.myapp.ViewModel.EmployeeViewModel;
 
 public class MainActivity extends AppCompatActivity implements NavigationView
         .OnNavigationItemSelectedListener {
 
-    CalendarView cv;
-    TextView dateTextView, holidayTextView,weekDayTextView, dayTextView, taskTextView,greetTextView,
-    nameTextView, presentTextView, absentTextView, plTextView, clTextView, slTextView;
+    @BindView(R.id.nameTextView) TextView nameTextView;
+    @BindView(R.id.presentTextView) TextView presentTextView;
+    @BindView(R.id.absentTextView) TextView absentTextView;
+    @BindView(R.id.plTextView) TextView plTextView;
+    @BindView(R.id.clTextView) TextView clTextView;
+    @BindView(R.id.slTextView) TextView slTextView;
+    @BindView(R.id.dateTextView) TextView dateTextView;
+    @BindView(R.id.dayTextView) TextView dayTextView;
+    @BindView(R.id.greetTextView) TextView greetTextView;
+    @BindView(R.id.holidayCalendarView) CalendarView cv;
+    @BindView(R.id.weekDayTextView) TextView weekDayTextView;
+    @BindView(R.id.holidayTextView) TextView holidayTextView;
+
     String currentDate;
     private CheckConnection receiver;
 
@@ -56,6 +74,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        ButterKnife.bind(this);
+
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         receiver = new CheckConnection(this){
             @Override
@@ -77,23 +97,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView
 
 
     private void updateDashboard(){
-        this.holidayTextView = findViewById(R.id.holidayTextView);
-        this.weekDayTextView = findViewById(R.id.weekDayTextView);
-        this.dayTextView = findViewById(R.id.dayTextView);
-        this.dateTextView = findViewById(R.id.dateTextView);
-        this.nameTextView = findViewById(R.id.nameTextView);
-        this.presentTextView = findViewById(R.id.presentTextView);
-        this.absentTextView = findViewById(R.id.absentTextView);
-        this.plTextView = findViewById(R.id.plTextView);
-        this.clTextView = findViewById(R.id.clTextView);
-        this.slTextView = findViewById(R.id.slTextView);
-        this.greetTextView = findViewById(R.id.greetTextView);
-        this.taskTextView = findViewById(R.id.taskTextView);
-        this.cv = findViewById(R.id.holidayCalendarView);
         long milliSeconds = cv.getDate();
         displayCurrentDate(milliSeconds);
-        new FetchEmployeeData(nameTextView, presentTextView, absentTextView, plTextView, slTextView, clTextView)
-                .execute();
+        final String total = "/5";
+        EmployeeViewModel employeeViewModel = new EmployeeViewModel();
+        employeeViewModel.getEmployeeData().observe(this, new Observer<List<EmployeeModel>>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onChanged(@Nullable List<EmployeeModel> employeeModels) {
+                nameTextView.setText(employeeModels.get(0).getFirstName());
+                presentTextView.setText(employeeModels.get(0).getPresent()+"/22");
+                absentTextView.setText(employeeModels.get(0).getAbsent()+"/22");
+                plTextView.setText(employeeModels.get(0).getPl()+total);
+                slTextView.setText(employeeModels.get(0).getSl()+total);
+                clTextView.setText(employeeModels.get(0).getCl()+total);
+            }
+        });
+        //new FetchEmployeeData(nameTextView, presentTextView, absentTextView, plTextView, slTextView, clTextView)
+                //.execute();
         new FetchHoliday(dayTextView, weekDayTextView, holidayTextView, currentDate).execute();
     }
 
@@ -131,17 +152,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView
     }
 
     public void launchTaskActivity(View view) {
-        Intent intent = new Intent(this,TaskActivity.class);
+        Intent intent = new Intent(this, TaskActivity.class);
         startActivity(intent);
     }
 
     public void launchMyLeavesActivity(View view) {
-        Intent intent = new Intent(this,MyLeavesActivity.class);
+        Intent intent = new Intent(this, MyLeavesActivity.class);
         startActivity(intent);
     }
 
     public void launchAttendanceLogActivity(View view) {
-        Intent intent = new Intent(this,AttendanceLogActivity.class);
+        Intent intent = new Intent(this, AttendanceLogActivity.class);
         startActivity(intent);
     }
 

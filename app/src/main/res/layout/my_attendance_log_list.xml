@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15dp"
-    tools:context="in.ac.a160303105075paruluniversity.myapp.ApprovedLeavesFragment">
+    tools:context="in.ac.a160303105075paruluniversity.myapp.View.ApprovedLeavesFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
