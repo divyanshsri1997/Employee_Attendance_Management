@@ -31,8 +31,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import in.ac.a160303105075paruluniversity.myapp.CheckConnection;
-import in.ac.a160303105075paruluniversity.myapp.FetchHoliday;
 import in.ac.a160303105075paruluniversity.myapp.Model.EmployeeModel;
+import in.ac.a160303105075paruluniversity.myapp.Model.HolidayModel;
 import in.ac.a160303105075paruluniversity.myapp.R;
 import in.ac.a160303105075paruluniversity.myapp.ViewModel.EmployeeViewModel;
 
@@ -52,8 +52,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView
     @BindView(R.id.weekDayTextView) TextView weekDayTextView;
     @BindView(R.id.holidayTextView) TextView holidayTextView;
 
-    String currentDate;
     private CheckConnection receiver;
+    String currentDate;
+    int currentDay,currentMonth,currentYear,time;
 
 
     @Override
@@ -76,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView
 
         ButterKnife.bind(this);
 
+        long milliSeconds = cv.getDate();
+        displayCurrentDate(milliSeconds);
+
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         receiver = new CheckConnection(this){
             @Override
@@ -97,8 +101,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView
 
 
     private void updateDashboard(){
-        long milliSeconds = cv.getDate();
-        displayCurrentDate(milliSeconds);
         final String total = "/5";
         EmployeeViewModel employeeViewModel = new EmployeeViewModel();
         employeeViewModel.getEmployeeData().observe(this, new Observer<List<EmployeeModel>>() {
@@ -113,12 +115,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView
                 clTextView.setText(employeeModels.get(0).getCl()+total);
             }
         });
+        employeeViewModel.getHolidayData().observe(this, new Observer<List<HolidayModel>>() {
+            @Override
+            public void onChanged(@Nullable List<HolidayModel> holidaysData) {
+                holidayTextView.setText(getHoliday(holidaysData));
+                weekDayTextView.setText(getWeekDay());
+            }
+        });
         //new FetchEmployeeData(nameTextView, presentTextView, absentTextView, plTextView, slTextView, clTextView)
                 //.execute();
-        new FetchHoliday(dayTextView, weekDayTextView, holidayTextView, currentDate).execute();
+        //new FetchHoliday(dayTextView, weekDayTextView, holidayTextView, currentDate).execute();
     }
-
-
 
     private boolean isConnected() {
         ConnectivityManager cm = (ConnectivityManager)this
@@ -130,13 +137,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView
     private void displayCurrentDate(long milliSeconds){
         Date date = new Date(milliSeconds);
         @SuppressLint("SimpleDateFormat") SimpleDateFormat df =
-                new SimpleDateFormat("dd-MM-YYYY HH");
+                new SimpleDateFormat("YYYY-MM-dd HH");
         String dateWithTime = df.format(date);
         currentDate = dateWithTime.substring(0,10);
-        String currentDay = currentDate.substring(0,2);
-        int time = Integer.parseInt(dateWithTime.substring(11));
+        currentDay = Integer.parseInt(currentDate.substring(8,10));
+        currentMonth = Integer.parseInt(currentDate.substring(5,7));
+        currentYear = Integer.parseInt(currentDate.substring(0,4));
+        time = Integer.parseInt(dateWithTime.substring(11));
         dateTextView.setText(currentDate);
-        dayTextView.setText(currentDay);
+        dayTextView.setText(String.valueOf(currentDay));
         displayGreetMessage(time);
     }
     private void displayGreetMessage(int time){
@@ -149,6 +158,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView
         else{
             greetTextView.setText(R.string.eveningMessage);
         }
+    }
+
+    String getWeekDay(){
+        String days[] = {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+        int t[] = {0,3,2,5,0,3,5,1,4,6,2,4};
+        int currentYear = 2020;
+        currentYear -= (currentMonth<3)?1:0;
+        int n = (currentYear + currentYear/4 - currentYear/100 + currentYear/400
+                + t[currentMonth - 1] + currentDay) % 7;
+        return days[n];
+    }
+
+    String getHoliday(List<HolidayModel> holidaysData){
+        String dayType = "WorkDay";
+        for (HolidayModel holiday:holidaysData) {
+            if (holiday.getDate().equals(currentDate)){
+                System.out.println(true);
+                if(holiday.getType().equals("Gazetted Holiday")){
+                    dayType = holiday.getName();
+                }
+            }
+        }
+        return dayType;
     }
 
     public void launchTaskActivity(View view) {
