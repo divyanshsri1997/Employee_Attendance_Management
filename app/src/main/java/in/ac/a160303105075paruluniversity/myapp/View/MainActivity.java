@@ -25,6 +25,7 @@ import android.widget.CalendarView;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -52,10 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView
     @BindView(R.id.weekDayTextView) TextView weekDayTextView;
     @BindView(R.id.holidayTextView) TextView holidayTextView;
 
-    private CheckConnection receiver;
-    String currentDate;
-    int currentDay,currentMonth,currentYear,time;
-
+    private String currentDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,20 +75,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView
 
         ButterKnife.bind(this);
 
-        long milliSeconds = cv.getDate();
-        displayCurrentDate(milliSeconds);
+        displayCurrentDate(cv.getDate());
 
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
-        receiver = new CheckConnection(this){
+        CheckConnection receiver = new CheckConnection(this) {
             @Override
             protected void onNetworkChange() {
                 boolean networkStatus = isConnected();
-                if(!networkStatus){
+                if (!networkStatus) {
                     //Toast.makeText(getApplicationContext(),"No internet...", Toast.LENGTH_SHORT).show();
-                    Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),"No Internet Connection",Snackbar.LENGTH_INDEFINITE);
+                    Snackbar snackbar = Snackbar
+                            .make(findViewById(android.R.id.content), "No Internet Connection", Snackbar.LENGTH_INDEFINITE);
                     snackbar.show();
-                }else{
-                    Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),"Connected...",Snackbar.LENGTH_SHORT);
+                } else {
+                    Snackbar snackbar = Snackbar
+                            .make(findViewById(android.R.id.content), "Connected...", Snackbar.LENGTH_SHORT);
                     snackbar.show();
                     updateDashboard();
                 }
@@ -136,18 +135,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView
 
     private void displayCurrentDate(long milliSeconds){
         Date date = new Date(milliSeconds);
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat df =
-                new SimpleDateFormat("YYYY-MM-dd HH");
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat df = new SimpleDateFormat("YYYY-MM-dd HH");
         String dateWithTime = df.format(date);
         currentDate = dateWithTime.substring(0,10);
-        currentDay = Integer.parseInt(currentDate.substring(8,10));
-        currentMonth = Integer.parseInt(currentDate.substring(5,7));
-        currentYear = Integer.parseInt(currentDate.substring(0,4));
-        time = Integer.parseInt(dateWithTime.substring(11));
+        int currentDay = Integer.parseInt(currentDate.substring(8, 10));
+        int time = Integer.parseInt(dateWithTime.substring(11));
         dateTextView.setText(currentDate);
         dayTextView.setText(String.valueOf(currentDay));
         displayGreetMessage(time);
     }
+
     private void displayGreetMessage(int time){
         if(time >=4 && time < 12){
             greetTextView.setText(R.string.morningMsg);
@@ -161,20 +159,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView
     }
 
     String getWeekDay(){
-        String days[] = {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
-        int t[] = {0,3,2,5,0,3,5,1,4,6,2,4};
-        int currentYear = 2020;
-        currentYear -= (currentMonth<3)?1:0;
-        int n = (currentYear + currentYear/4 - currentYear/100 + currentYear/400
-                + t[currentMonth - 1] + currentDay) % 7;
-        return days[n];
+        String[] days = {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(cv.getDate());
+        int n = calendar.get(Calendar.DAY_OF_WEEK);
+        return days[n-1];
     }
 
     String getHoliday(List<HolidayModel> holidaysData){
         String dayType = "WorkDay";
         for (HolidayModel holiday:holidaysData) {
             if (holiday.getDate().equals(currentDate)){
-                System.out.println(true);
                 if(holiday.getType().equals("Gazetted Holiday")){
                     dayType = holiday.getName();
                 }
