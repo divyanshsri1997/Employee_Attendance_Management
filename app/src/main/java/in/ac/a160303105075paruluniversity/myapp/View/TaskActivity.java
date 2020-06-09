@@ -18,7 +18,6 @@ import in.ac.a160303105075paruluniversity.myapp.TaskListAdapter;
 public class TaskActivity extends AppCompatActivity {
 
     @BindView(R.id.recyclerview)RecyclerView mRecyclerView;
-    private TaskListAdapter mAdapter;
     private static ArrayList<Dictionary> taskArrayList;
 
     @Override
@@ -29,7 +28,7 @@ public class TaskActivity extends AppCompatActivity {
         taskArrayList = new ArrayList<>();
         taskArrayList.add(new ApplicantLeaveData().applicantData1);
         taskArrayList.add(new ApplicantLeaveData().applicantData2);
-        mAdapter = new TaskListAdapter(this,taskArrayList);
+        TaskListAdapter mAdapter = new TaskListAdapter(this, taskArrayList);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

@@ -139,10 +139,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView
         SimpleDateFormat df = new SimpleDateFormat("YYYY-MM-dd HH");
         String dateWithTime = df.format(date);
         currentDate = dateWithTime.substring(0,10);
-        int currentDay = Integer.parseInt(currentDate.substring(8, 10));
+        String currentDay = currentDate.substring(8, 10);
         int time = Integer.parseInt(dateWithTime.substring(11));
         dateTextView.setText(currentDate);
-        dayTextView.setText(String.valueOf(currentDay));
+        dayTextView.setText(currentDay);
         displayGreetMessage(time);
     }
 

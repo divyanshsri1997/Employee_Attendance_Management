@@ -8,9 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.Dictionary;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ApprovedLeavesAdapter extends RecyclerView.Adapter<ApprovedLeavesAdapter.ApprovedLeavesViewHolder> {
 
@@ -53,14 +54,13 @@ public class ApprovedLeavesAdapter extends RecyclerView.Adapter<ApprovedLeavesAd
 
     static class ApprovedLeavesViewHolder extends RecyclerView.ViewHolder{
 
-        final TextView leaveItemTextView,leaveDateTextView;
-        final Button leaveButton;
         final ApprovedLeavesAdapter mAdapter;
+        @BindView(R.id.approvedLeaveTextView) TextView leaveItemTextView;
+        @BindView(R.id.leaveBtn) Button leaveButton;
+        @BindView(R.id.leaveDateTextView) TextView leaveDateTextView;
         ApprovedLeavesViewHolder(View mItemView, ApprovedLeavesAdapter approvedLeavesAdapter) {
             super(mItemView);
-            leaveItemTextView = mItemView.findViewById(R.id.approvedLeaveTextView);
-            leaveButton = mItemView.findViewById(R.id.leaveBtn);
-            leaveDateTextView = mItemView.findViewById(R.id.leaveDateTextView);
+            ButterKnife.bind(this,mItemView);
             this.mAdapter = approvedLeavesAdapter;
         }
     }

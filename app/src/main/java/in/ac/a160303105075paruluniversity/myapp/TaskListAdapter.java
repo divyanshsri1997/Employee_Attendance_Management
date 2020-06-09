@@ -12,6 +12,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Dictionary;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import in.ac.a160303105075paruluniversity.myapp.View.ApproveLeaveActivity;
 
 /**
@@ -68,18 +70,15 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
     class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        final TextView taskItemTextView;
-        final Button buttonText;
-        final TextView fromDateTextView;
-        final TextView applicantNameTextView;
         final TaskListAdapter mAdapter;
+        @BindView(R.id.task) TextView taskItemTextView;
+        @BindView(R.id.requestDateTextView) TextView fromDateTextView;
+        @BindView(R.id.applicantNameTextView) TextView applicantNameTextView;
+        @BindView(R.id.imageButton) Button buttonText;
 
         TaskViewHolder(View itemView, TaskListAdapter adapter)  {
             super(itemView);
-            taskItemTextView = itemView.findViewById(R.id.task);
-            fromDateTextView = itemView.findViewById(R.id.requestDateTextView);
-            applicantNameTextView = itemView.findViewById(R.id.applicantNameTextView);
-            buttonText = itemView.findViewById(R.id.imageButton);
+            ButterKnife.bind(this,itemView);
             this.mAdapter = adapter;
             itemView.setOnClickListener(this);
 
